@@ -15,7 +15,7 @@ public class ActionInfoVO {
     private Integer is_crawl;
     private String is_delete;
     private Integer is_recommend;
-    private Integer num;
+    private String num;
     //价格，韭研已经做了处理，小数整数化了(*100)
     private Integer price;
     private String reason;
