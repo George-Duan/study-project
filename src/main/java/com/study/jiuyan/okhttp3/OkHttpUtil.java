@@ -1,7 +1,5 @@
 package com.study.jiuyan.okhttp3;
 
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.study.dto.HttpResultDTO;
@@ -45,7 +43,6 @@ public class OkHttpUtil {
             if (responseBody != null) {
                 String responseBodyString = responseBody.string();
                 System.out.println(responseBodyString);
-//                return JSONObject.parseObject(responseBodyString, new TypeReference<ResResultVO>(){});
                 return new Gson().fromJson(responseBodyString, new TypeToken<ResResultVO>(){}.getType());
             } else {
                 throw new Exception("request " + url + " commonExecute ResponseBody is null");
@@ -71,7 +68,7 @@ public class OkHttpUtil {
             if (responseBody != null) {
                 String responseBodyString = responseBody.string();
                 log.info(responseBodyString);
-                httpResultDTO = JSONObject.parseObject(responseBodyString, HttpResultDTO.class);
+                httpResultDTO = new Gson().fromJson(responseBodyString, HttpResultDTO.class);
                 return httpResultDTO;
             } else {
                 throw new Exception("request " + requestUrl + " commonExecute ResponseBody is null");
