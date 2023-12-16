@@ -1,3 +1,5 @@
 *.class
 Maven*.xml
 Maven*.XML
+.idea
+./target
