@@ -11,6 +11,6 @@ import java.util.List;
 public class TradeCalService extends ServiceImpl<TradeCalMapper, TradeCal> {
 
     public List<TradeCal> listByOpenTradeOrderByTradeDateDesc(){
-        return this.lambdaQuery().eq(TradeCal::getIsOpen, Boolean.TRUE).isNotNull(TradeCal::getPreTradeDate).orderByDesc(TradeCal::getCalDate).list();
+        return this.lambdaQuery().eq(TradeCal::getIsOpen, Boolean.TRUE).le(TradeCal::getPreTradeDate, "20210302").isNotNull(TradeCal::getPreTradeDate).orderByDesc(TradeCal::getCalDate).list();
     }
 }

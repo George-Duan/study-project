@@ -42,7 +42,7 @@ public class OkHttpUtil {
             ResponseBody responseBody = response.body();
             if (responseBody != null) {
                 String responseBodyString = responseBody.string();
-                System.out.println(responseBodyString);
+                //System.out.println(responseBodyString);
                 return new Gson().fromJson(responseBodyString, new TypeToken<ResResultVO>(){}.getType());
             } else {
                 throw new Exception("request " + url + " commonExecute ResponseBody is null");
